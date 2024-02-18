@@ -1,13 +1,19 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    kotlin("kapt")
+
+//    kotlin("kapt")
     id("com.google.dagger.hilt.android")
 
     // PL
-//    id("kotlin-kapt")
+    id("kotlin-kapt")
 //    id ("dagger.hilt.android.plugin")
+//
+    id("kotlin-android")
 
+    // Google
+//    kotlin("kapt")
+//    id("com.google.dagger.hilt.android")
 
 }
 
@@ -89,13 +95,6 @@ dependencies {
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
 
-    //Dagger - Hilt
-    implementation ("com.google.dagger:hilt-android:2.49")
-    kapt ("com.google.dagger:hilt-android-compiler:2.37")
-    implementation ("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
-    kapt ("androidx.hilt:hilt-compiler:1.1.0")
-    implementation ("androidx.hilt:hilt-navigation-compose:1.1.0")
-
     // Retrofit
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
@@ -109,4 +108,33 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
 
 
+
+    // Stackoverflow
+    implementation("com.google.dagger:hilt-android:2.48.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.48.1")
+    // lifecycle viewmodel is deprecated no longer in use
+//    implementation ("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
+    kapt("androidx.hilt:hilt-compiler:1.0.0")
+//    implementation("androidx.hilt:hilt-navigation-fragment:1.0.0")
+//    kapt ("com.google.dagger:hilt-compiler:2.48.1")
+    implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+
+
+
+
+    //Dagger - Hilt
+//    implementation ("com.google.dagger:hilt-android:2.49")
+//    kapt ("com.google.dagger:hilt-android-compiler:2.44")
+//    kapt ("androidx.hilt:hilt-compiler:1.1.0")
+
+//    kapt ("com.google.dagger:hilt-compiler:2.44")
+//    implementation ("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
+//    implementation ("androidx.hilt:hilt-navigation-compose:1.1.0")
+
+
+}
+
+kapt {
+    correctErrorTypes = true
 }
