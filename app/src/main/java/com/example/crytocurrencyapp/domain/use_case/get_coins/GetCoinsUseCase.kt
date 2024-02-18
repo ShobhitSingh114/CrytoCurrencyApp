@@ -19,7 +19,7 @@ class GetCoinsUseCase @Inject constructor(
 
     // Then we return a flow bcz we want to emit multiple values over a period of time
     // 1. we want to emit that now we are actually loading use cases so we can display the progress bar
-    // 2. we want to emit if its sucessful and we want to attach our data i.e. list of coins
+    // 2. we want to emit if its successful and we want to attach our data i.e. list of coins
     // 3. and if an error happens we want to emit an error here
     // that is what this "Resource" will be helpful for
 
