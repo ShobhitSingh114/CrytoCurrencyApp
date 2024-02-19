@@ -3,6 +3,7 @@ package com.example.crytocurrencyapp.data.remote.dto
 import com.example.crytocurrencyapp.domain.model.Coin
 import com.google.gson.annotations.SerializedName
 
+// Dto = data transfer object
 
 // Access all elements from api
 // but doesn't use every variable
