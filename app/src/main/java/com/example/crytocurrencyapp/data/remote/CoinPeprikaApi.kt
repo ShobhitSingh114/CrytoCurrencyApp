@@ -6,6 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface CoinPeprikaApi {
+    // https://api.coinpaprika.com/v1/coins
     @GET("/v1/coins")
     suspend fun getCoins(): List<CoinDto>
 

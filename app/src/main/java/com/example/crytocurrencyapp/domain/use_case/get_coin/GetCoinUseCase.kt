@@ -16,7 +16,7 @@ class GetCoinUseCase @Inject constructor(
     private val repository: CoinRepository
 ) {
 
-    // some call this 'invoke' fun 'execute'
+    // some call this 'invoke' fun -> 'execute'
     // using this invoke we can call this "GetCoinsUseCase" class as a "fun"
 
     // Then we return a flow bcz we want to emit multiple values over a period of time
