@@ -35,21 +35,21 @@ class GetCoinsUseCase @Inject constructor(
             // so we can emit Resource.Success
 
             // Success mai wo data pass kr na hai jo VM mai pass hoga
-            emit(Resource.Success(coins))
+            emit(Resource.Success(data = coins))
         }
 
         // HttpException = which will happen if we get a not successful req
         // i.e. if we get a response code that doesn't start with 2 (means 200's)
         catch (e: HttpException) {
             // if e.localizedMessage is null then use the string given
-            emit(Resource.Error(e.localizedMessage ?: "An Unexpected Error Occurred"))
+            emit(Resource.Error(message = e.localizedMessage ?: "An Unexpected Error Occurred"))
         }
 
         // IOException = when our Repository or api can't talk to the actual Remote Api
         // ForEx = No internet connection
         // [my guess] = basically Client error and response code should be in 400's
         catch (e: IOException) {
-            emit(Resource.Error("Couldn't reach server. Check your Internet Connection"))
+            emit(Resource.Error(message = "Couldn't reach server. Check your Internet Connection"))
         }
     }
 }

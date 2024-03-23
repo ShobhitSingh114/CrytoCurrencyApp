@@ -1,6 +1,7 @@
 package com.example.crytocurrencyapp.presentation
 
 import android.os.Bundle
+import android.view.Surface
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -35,7 +36,7 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     NavHost(
                         navController = navController,
-                        startDestination = Screen.CoinListScreen.route
+                        startDestination = Screen.  CoinListScreen.route
                     ) {
                         composable(
                             route = Screen.CoinListScreen.route

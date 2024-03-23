@@ -109,7 +109,7 @@ dependencies {
 
 
 
-    // Stackoverflow
+    // Dagger-Hilt  ->  Stackoverflow
     implementation("com.google.dagger:hilt-android:2.48.1")
     kapt("com.google.dagger:hilt-android-compiler:2.48.1")
     // lifecycle viewmodel is deprecated no longer in use
