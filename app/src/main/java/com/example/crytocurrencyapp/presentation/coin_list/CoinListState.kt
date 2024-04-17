@@ -6,5 +6,6 @@ data class CoinListState(
     val isLoading: Boolean = false,
     val coins: List<Coin> = emptyList(),
 //    var coins: List<Coin> = emptyList(),
-    val error: String = ""
+    val error: String = "",
+    val searchQuery: String = ""
 )

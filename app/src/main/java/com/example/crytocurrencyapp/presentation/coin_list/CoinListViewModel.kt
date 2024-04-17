@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.crytocurrencyapp.common.Resource
 import com.example.crytocurrencyapp.domain.use_case.get_coins.GetCoinsUseCase
-import com.example.crytocurrencyapp.domain.use_case.get_coins.SearchCoinUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -15,8 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CoinListViewModel @Inject constructor(
-    private val getCoinsUseCase: GetCoinsUseCase,
-    private val searchCoinUseCase: SearchCoinUseCase
+    private val getCoinsUseCase: GetCoinsUseCase
 ) : ViewModel() {
 
 // Why we still have VM bcz there main work is taking data n all from repository
@@ -36,25 +34,6 @@ class CoinListViewModel @Inject constructor(
         getCoins()
     }
 
-
-//    fun searchFunction(query: String){
-//        searchCoinUseCase(query).onEach {
-//            when(it) {
-//                is Resource.Success -> {
-//                    _state.value = CoinListState(coins = it.data ?: emptyList())
-//
-//                }
-//                is Resource.Loading -> {
-//                    _state.value = CoinListState(
-//                        error = it.message ?: "An Unexpected error occurred"
-//                    )
-//                }
-//                is Resource.Error -> {
-//                    _state.value = CoinListState(isLoading = true)
-//                }
-//            }
-//        }.launchIn(viewModelScope)
-//    }
     private fun getCoins() {
         // bcz of invoke fun we are now able to use "GetCoinsUseCase" class as a fun
         // and there is a flow which emit various thing
@@ -63,6 +42,7 @@ class CoinListViewModel @Inject constructor(
             when(result){
                 is Resource.Success -> {
                     _state.value = CoinListState(coins = result.data ?: emptyList())
+//                    _state.value = _state.value.copy(coins = result.data ?: emptyList())
                 }
                 is Resource.Error -> {
                     _state.value = CoinListState(
@@ -82,7 +62,8 @@ class CoinListViewModel @Inject constructor(
                     val filteredCoins = result.data?.filter {
                         it.name.contains(query, ignoreCase = true)
                     } ?: emptyList()
-                    _state.value = CoinListState(coins = filteredCoins)
+//                    _state.value = CoinListState(coins = filteredCoins)
+                    _state.value = _state.value.copy(coins = filteredCoins)
                 }
                 is Resource.Error -> {
                     _state.value = CoinListState(
